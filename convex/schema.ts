@@ -13,5 +13,8 @@ export default defineSchema({
   }),
 
   // Trip Details Table 【8727.52, type: source】 
-  
+  TripDetailTable: defineTable({
+    tripId: v.string(),
+    tripDetail: v.any(),
+    uid: v.id('UserTable')
 })

@@ -1,23 +1,26 @@
 import { Globe2, Users, DollarSign, Calendar } from 'lucide-react'
 
+import {  Plane, Landmark, Compass } from 'lucide-react'
+
 const suggestions = [
   {
-    icon: <Globe2 className="h-6 w-6 text-blue-400" />,
-    title: 'Create new trip'
+    icon: <Globe2 className="h-6 w-6 text-blue-500" />,
+    title: 'Create New Trip',
   },
   {
-    icon: <Users className="h-6 w-6 text-green-400" />,
-    title: 'Who are you traveling with?'
+    icon: <Plane className="h-6 w-6 text-green-500" />,
+    title: 'Inspire me where to go',
   },
   {
-    icon: <DollarSign className="h-6 w-6 text-yellow-400" />,
-    title: 'What is your budget?'
+    icon: <Landmark className="h-6 w-6 text-orange-500" />,
+    title: 'Discover Hidden gems',
   },
   {
-    icon: <Calendar className="h-6 w-6 text-purple-400" />,
-    title: 'How many days?'
-  }
+    icon: <Compass className="h-6 w-6 text-yellow-500" />,
+    title: 'Adventure Destination',
+  },
 ]
+
 
 interface EmptyBoxStateProps {
   onSelectOption: (option: string) => void
