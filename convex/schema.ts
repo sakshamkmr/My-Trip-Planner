@@ -18,3 +18,4 @@ export default defineSchema({
     tripDetail: v.any(),
     uid: v.id('UserTable')
 })
+})

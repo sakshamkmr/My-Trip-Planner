@@ -12,7 +12,7 @@ import FinalUi from './FinalUI'
 import { on } from 'events'
 import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
-import { useUserDetail } from '@/app/provider'
+import { useTripDetail, useUserDetail } from '@/app/provider'
 import { v4 as uuidv4 } from 'uuid';
 
 type Message = {
@@ -26,8 +26,33 @@ type Message = {
   groupSize: string
   budget: string
   duration: string
-  hotels: any
-  itinerary: any
+  hotels: Hotel[]
+  itinerary: ItineraryDay[]
+}
+ export type Hotel = {
+  hotelName: string
+  hotel_address: string
+  pricePerNight: string
+  rating: number
+  description?: string
+}
+ export type Activity = {
+  placeName: string
+  placeDetails: string
+  ticketPricing?: string
+  time_travel_each_location: string
+  best_Time_To_Visit: string
+  placeAddress?: string
+  geocoordinates?: {
+    longitude: number
+    latitude: number
+  }
+}
+ export type ItineraryDay = {
+  day: number
+  day_plan : string
+  best_Time_To_Visit_day: string
+  activities: Activity[]
 }
 
 export default function ChatBox() {
@@ -36,8 +61,9 @@ export default function ChatBox() {
   const [loading, setLoading] = useState(false)
   const [isFinal, setIsFinal] = useState(false)
   const [tripDetails, setTripDetails] = useState<TripInfo>();
-  const SaveTripDetail=useMutation(api.tripDetails.createTripDetail);
+  const SaveTripDetail=useMutation(api.tripDetail.CreateTripDetail);
   const {userDetail, setUserDetail} = useUserDetail();
+  const {tripDetailinfo, settripDetailinfo} = useTripDetail();
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -79,6 +105,7 @@ export default function ChatBox() {
       !isFinal &&setMessages(prev => [...prev, aiMessage])
       if(isFinal){
         setTripDetails(res?.data?.trip_plan);
+        settripDetailinfo(res?.data?.trip_plan);
         const tripId = uuidv4();
         await SaveTripDetail({
           tripId: tripId,
@@ -131,7 +158,7 @@ useEffect(() => {
   }
 
   return (
-    <div className="flex flex-col h-[85vh] bg-gray-50 border rounded-2xl p-5 shadow-lg">
+    <div className="flex flex-col h-[85vh] border shadow rounded-2xl p-5 shadow-lg">
       <div className="flex-1 overflow-y-auto space-y-4 pr-2">
         {messages.length === 0 && (
           <EmptyBoxState onSelectOption={v => { setUserInput(v); onSend() }} />

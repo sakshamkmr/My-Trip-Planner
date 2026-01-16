@@ -6,6 +6,7 @@
 
     import { Globe2, MapPin } from 'lucide-react'
     import { Button } from '@/components/ui/button'
+import Itinerary from './_components/Itinerary'
 
 
 
@@ -13,12 +14,12 @@
     function CreateNewTrip() {
     return (
         
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 p-5'>
         <div>
             <ChatBox/>
         </div>
-        <div>
-            Map and trip Plan to Display
+        <div className='col-span-2'>
+            <Itinerary/>
         </div>
         </div>
     )
