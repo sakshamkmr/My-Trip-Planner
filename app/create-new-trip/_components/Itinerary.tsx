@@ -13,7 +13,7 @@ import  { ItineraryDay } from "./ChatBox";
 
 function Itinerary() {
   // @ts-ignore
-  const { tripDetailinfo } = useTripDetail();
+  const { tripDetailinfo,setTripDetailinfo } = useTripDetail();
   const [tripData, setTripData] = useState<TripInfo | null>(null);
 
   useEffect(() => {
