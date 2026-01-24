@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Hero from "./_components/Hero";
+import { PopularCityList } from "./_components/PopularCityList";
 
 
 export default function Home() {
   return (
     <div>
-      <h1>Hi this is Saksham</h1>
-      <Button>Click me</Button>
+      
       <Hero/>
+      <PopularCityList/>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 "use client"
+import GlobalMap from '@/app/create-new-trip/_components/GlobalMap';
 import Itinerary from '@/app/create-new-trip/_components/Itinerary';
 import { Trip } from '@/app/my-trips/_components/MyTripCardItem';
 
@@ -29,8 +30,13 @@ function ViewTrip() {
     }
     
   return (
-    <div>
-        <Itinerary  />
+    <div className='grid grid-cols-5'>
+        <div className='col-span-3'>
+        <Itinerary/>
+    </div>
+    <div className='col-span-2'>
+        <GlobalMap/>
+    </div>
     </div>
   )
 }
