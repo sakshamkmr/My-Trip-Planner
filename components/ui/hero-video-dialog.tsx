@@ -4,15 +4,21 @@ import * as React from "react"
 import { Play } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+
 interface HeroVideoDialogProps {
-  videoSrc: string
   thumbnailSrc: string
+  videoSrc: string
+  animation?: string
+  thumbnailAlt?: string
   className?: string
 }
+
 
 export default function HeroVideoDialog({
   videoSrc,
   thumbnailSrc,
+  animation,
+  thumbnailAlt,
   className,
 }: HeroVideoDialogProps) {
   const [open, setOpen] = React.useState(false)

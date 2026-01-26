@@ -16,6 +16,7 @@ import { api } from '@/convex/_generated/api'
 import { useTripDetail, useUserDetail } from '@/app/provider'
 import { v4 as uuidv4 } from 'uuid';
 
+
 type Message = {
   role: 'user' | 'assistant'
   content: string
@@ -64,7 +65,8 @@ export default function ChatBox() {
   const [tripDetails, setTripDetails] = useState<TripInfo>();
   const SaveTripDetail=useMutation(api.tripDetail.CreateTripDetail);
   const {userDetail, setUserDetail} = useUserDetail();
-  const {tripDetailinfo, settripDetailinfo} = useTripDetail();
+  //@ts-ignore
+  const {tripDetailinfo,settripDetailinfo}=useTripDetail();
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 

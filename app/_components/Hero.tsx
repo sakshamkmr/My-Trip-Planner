@@ -118,8 +118,8 @@ function Hero() {
 
         <HeroVideoDialog
           thumbnailSrc="/video-thumbnail.jpg"
-          videoUrl="https://youtube.com/embed/..."
-          animationStyle="from-center"
+          videoSrc="https://youtube.com/embed/..."
+          animation="fade-up"
           thumbnailAlt="Demo video"
         />
       </div>

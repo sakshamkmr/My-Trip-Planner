@@ -34,11 +34,11 @@ function Itinerary() {
             </div>
           ),
         },
-        ...tripData.itinerary.map((dayData: Itinerary) => ({
+        ...tripData.itinerary.map((dayData: ItineraryDay) => ({
           title: `Day ${dayData.day}`,
           content: (
             <div>
-              <p>Best Time : {dayData.best_time_to_visit_day}</p>
+              <p>Best Time : {dayData.best_Time_To_Visit_day}</p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {dayData.activities.map((activity: any, idx: number) => (
