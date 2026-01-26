@@ -268,30 +268,28 @@ export const Card = ({
 };
 
 export const BlurImage = ({
-  height,
-  width,
   src,
   className,
   alt,
   ...rest
 }: ImageProps) => {
   const [isLoading, setLoading] = useState(true);
+
   return (
-    <img
+    <Image
+      src={src}
+      alt={alt ?? "Background of a beautiful view"}
       className={cn(
-        "h-full w-full transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
-        className,
+        "transition duration-300",
+        isLoading ? "blur-sm scale-105" : "blur-0 scale-100",
+        className
       )}
-      onLoad={() => setLoading(false)}
-      src={src as string}
-      width={width}
-      height={height}
-      loading="lazy"
-      decoding="async"
+      onLoadingComplete={() => setLoading(false)}
+      placeholder="blur"
       blurDataURL={typeof src === "string" ? src : undefined}
-      alt={alt ? alt : "Background of a beautiful view"}
       {...rest}
     />
   );
 };
+
+

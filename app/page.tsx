@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Hero from "./_components/Hero";
 import { PopularCityList } from "./_components/PopularCityList";
+import Footer from "./_components/Footer";
 
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       
       <Hero/>
       <PopularCityList/>
+      <Footer/>
     </div>
   );
 }
